@@ -1,5 +1,6 @@
 package com.sacumentask.service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class SacumenServices {
 
 	private JenkinsServiceUtil jenkinsServiceUtil;
 
-	public Optional<?> getAlljobs() {
+	public List<?> getAlljobs() {
 
 		JenkinsResponse jenkinsResponse = modelMapper.map(jenkinsServiceUtil.getAllJobs().getBody(),
 				JenkinsResponse.class);
@@ -57,7 +58,7 @@ public class SacumenServices {
 		}).collect(Collectors.toList()));
 		log.info(String.format("Returning the response: " + jenkinsResponse.getJobs()));
 
-		return Optional.ofNullable(jenkinsResponse.getJobs());
+		return jenkinsResponse.getJobs();
 
 	}
 
