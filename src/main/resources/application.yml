@@ -1,0 +1,9 @@
+server:
+  port: 9000
+
+jenkins:
+  username: admin
+  password: admin
+  
+project:
+  version: 2.0 
